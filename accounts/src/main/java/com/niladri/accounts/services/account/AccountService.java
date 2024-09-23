@@ -33,8 +33,7 @@ public class AccountService implements AccountServiceInterface {
         if (customer.isPresent()) {
             throw new CustomerAlreadyExist("Customer already exist with email: " + customerDetails.getCustomerEmail());
         }
-        customerDetails.setCreatedBy("ADMIN");
-        customerDetails.setCreatedDate(LocalDateTime.now());
+
         CustomerModel newCustomer = customerRepo.save(customerDetails);
         AccountModel newAccount = accountRepo.save(createNewAccount(newCustomer));
         AccountDto newAccountDto = AccountMapper.mapToAccountDto(newAccount);
@@ -81,8 +80,6 @@ public class AccountService implements AccountServiceInterface {
         accountModel.setCustomerId(customer.getCustomerId());
         accountModel.setAccountType(AccountConstants.SAVINGS);
         accountModel.setBranchAddress(AccountConstants.ADDRESS);
-        accountModel.setCreatedBy("ADMIN");
-        accountModel.setCreatedDate(LocalDateTime.now());
         accountModel.setAccountNumber(1000000000L + new Random().nextInt(900000000));
         return accountModel;
     }

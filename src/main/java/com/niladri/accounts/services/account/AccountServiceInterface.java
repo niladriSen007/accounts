@@ -1,8 +1,8 @@
 package com.niladri.accounts.services.account;
 
 import com.niladri.accounts.dto.account.AccountDto;
-import com.niladri.accounts.dto.customer.CustomerDto;
 import com.niladri.accounts.model.customer.CustomerModel;
+
 import jakarta.validation.Valid;
 
 public interface AccountServiceInterface {

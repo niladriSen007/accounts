@@ -30,10 +30,10 @@ public class BaseModel {
     private String createdBy;
 
     @LastModifiedDate
-     @Column(insertable  = false)
+    @Column(insertable = false)
     private LocalDateTime updatedDate;
 
     @LastModifiedBy
-     @Column(insertable = false)
+    @Column(insertable = false)
     private String updatedBy;
 }

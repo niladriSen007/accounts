@@ -1,5 +1,10 @@
 package com.niladri.accounts.services.account;
 
+import java.util.Optional;
+import java.util.Random;
+
+import org.springframework.stereotype.Service;
+
 import com.niladri.accounts.constants.AccountConstants;
 import com.niladri.accounts.dto.account.AccountDto;
 import com.niladri.accounts.dto.customer.CustomerDto;
@@ -11,19 +16,16 @@ import com.niladri.accounts.model.account.AccountModel;
 import com.niladri.accounts.model.customer.CustomerModel;
 import com.niladri.accounts.repository.account.AccountRepo;
 import com.niladri.accounts.repository.customer.CustomerRepo;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.util.Optional;
-import java.util.Random;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AccountService implements AccountServiceInterface {
 
-    private AccountRepo accountRepo;
-    private CustomerRepo customerRepo;
+    private final AccountRepo accountRepo;
+    private final CustomerRepo customerRepo;
 
 
     @Override

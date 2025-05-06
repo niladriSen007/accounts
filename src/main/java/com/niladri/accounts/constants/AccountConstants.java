@@ -1,8 +1,5 @@
 package com.niladri.accounts.constants;
 
-import lombok.NoArgsConstructor;
-
-
 public final class AccountConstants {
 
     private  AccountConstants() {

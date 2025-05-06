@@ -1,16 +1,33 @@
 server:
   port: 8080
 spring:
+  application:
+    name: accounts
   datasource:
-    url: jdbc:h2:mem:accounts1
-    driverClassName: org.h2.Driver
-    username: sa
-    password: ''
-  h2:
-    console:
-      enabled: true
+    url: jdbc:postgresql://localhost:5432/jpa-microservice-accounts
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "qa"
+#      - "prod"
+
+build:
+  version: "3.0"
+accounts:
+  message: "Accounts Service"
+  contactDetails:
+    email: "abc@abc.com"
+    phone: "1234567890"
+  onCallSupport:
+    enabled: true
+    phoneNumber: "1234567890"

@@ -18,4 +18,8 @@ spring:
     active:
 #      - "qa"
       - "prod"
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

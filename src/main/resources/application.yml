@@ -1,8 +1,10 @@
 server:
-  port: 8080
+  port: 8000
 spring:
   application:
     name: accounts
+  config:
+    import: "optional:configserver:http://localhost:8071/"
   datasource:
     url: jdbc:postgresql://localhost:5432/jpa-microservice-accounts
     driver-class-name: org.postgresql.Driver
@@ -12,22 +14,8 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-  config:
-    import:
-      - "application_qa.yml"
-      - "application_prod.yml"
   profiles:
     active:
-      - "qa"
-#      - "prod"
+#      - "qa"
+      - "prod"
 
-build:
-  version: "3.0"
-accounts:
-  message: "Accounts Service"
-  contactDetails:
-    email: "abc@abc.com"
-    phone: "1234567890"
-  onCallSupport:
-    enabled: true
-    phoneNumber: "1234567890"

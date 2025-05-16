@@ -1,10 +1,5 @@
 package com.niladri.accounts.services.account;
 
-import java.util.Optional;
-import java.util.Random;
-
-import org.springframework.stereotype.Service;
-
 import com.niladri.accounts.constants.AccountConstants;
 import com.niladri.accounts.dto.account.AccountDto;
 import com.niladri.accounts.dto.customer.CustomerDto;
@@ -16,9 +11,11 @@ import com.niladri.accounts.model.account.AccountModel;
 import com.niladri.accounts.model.customer.CustomerModel;
 import com.niladri.accounts.repository.account.AccountRepo;
 import com.niladri.accounts.repository.customer.CustomerRepo;
-
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -63,7 +60,7 @@ public class AccountService implements AccountServiceInterface {
         CustomerModel updatedCustomer = customerRepo.save(customer);
         accountModel.setAccountType(accountDetails.getAccountType());
         accountModel.setBranchAddress(accountDetails.getBranchAddress());
-       accountModel.setCustomerId(updatedCustomer.getCustomerId());
+        accountModel.setCustomerId(updatedCustomer.getCustomerId());
         AccountModel updatedAccount = accountRepo.save(accountModel);
         AccountDto updatedAccountDto = AccountMapper.mapToAccountDto(updatedAccount);
         updatedAccountDto.setCustomerDetails(CustomerMapper.mapToCustomerDto(updatedCustomer));

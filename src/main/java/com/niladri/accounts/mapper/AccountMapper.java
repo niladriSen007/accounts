@@ -4,6 +4,8 @@ import com.niladri.accounts.dto.account.AccountDto;
 import com.niladri.accounts.model.account.AccountModel;
 
 public class AccountMapper {
+    
+    private AccountMapper() {}
     public static AccountModel mapToAccountModel(AccountDto accountDto) {
         AccountModel accountModel = new AccountModel();
         accountModel.setAccountNumber(accountDto.getAccountNumber());

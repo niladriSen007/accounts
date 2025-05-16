@@ -14,25 +14,24 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-@Table(name = "customer")
+@Table(name = "t_customer")
 public class CustomerModel extends BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-//    @Column(name = "customer_id")
+    @Column(name = "customer_id")
     private Long customerId;
 
-//    @Column(name = "name")
+    @Column(name = "customer_name")
     @NotBlank(message = "Customer name is mandatory")
-    @Size(min = 3, max = 50,message = "Customer name must be between 3 and 50 characters")
+    @Size(min = 3, max = 50, message = "Customer name must be between 3 and 50 characters")
     private String customerName;
 
-//    @Column(name = "email")
+    @Column(name = "customer_email")
     @NotBlank(message = "Customer email is mandatory")
     @Email
     private String customerEmail;
 
-//    @Column(name = "mobile_number")
+    @Column(name = "customer_mobile_number")
     @NotNull(message = "Customer phone is mandatory")
     @Size(min = 10, max = 10, message = "Customer phone must be 10 characters")
     private String customerPhone;
